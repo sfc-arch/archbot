@@ -17,3 +17,6 @@ module.exports = (robot) ->
     robot.http("http://www.lgtm.in/g").header('Accept', 'application/json').get() (err, res, body) ->
       data = JSON.parse body
       msg.send data.actualImageUrl
+
+  robot.hear /^whoami$/i, (msg) ->
+      msg.send msg.message.user.name
