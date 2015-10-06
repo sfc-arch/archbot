@@ -23,5 +23,5 @@ module.exports = (robot) ->
     , (err, issues) ->
       messages =
         for issue in issues
-          ":exclamation: <#{issue.html_url}|##{issue.number}> #{issue.title}"
+          ":exclamation: ##{issue.number} #{issue.title} #{issue.html_url}"
       msg.send messages.join("\n")
