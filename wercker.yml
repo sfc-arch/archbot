@@ -15,7 +15,7 @@ deploy:
         keyname: WERCKER_SSH_KEY
     - script:
         name: restart hubot
-        code: ssh hubot@$SSH_HOST "export HUBOT_SLACK_TOKEN=$HUBOT_SLACK_TOKEN && cd $HUBOT_DIR && git pull origin $WERCKER_GIT_BRANCH && ndenv exec node ~/node_modules/.bin/pm2 stop all && ndenv exec node ~/node_modules/.bin/pm2 start -f bin/hubot -x --name hubot -- -a slack -n archbot"
+        code: ssh hubot@$SSH_HOST "export HUBOT_SLACK_TOKEN=$HUBOT_SLACK_TOKEN && cd $HUBOT_DIR && git pull origin $WERCKER_GIT_BRANCH && ndenv exec node ~/node_modules/.bin/pm2 restart all"
   after-steps:
     - wantedly/pretty-slack-notify:
         webhook_url: $SLACK_WEBHOOK_URL
