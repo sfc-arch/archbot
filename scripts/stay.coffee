@@ -16,5 +16,7 @@ module.exports = (robot) ->
         msg.reply 'You should be set studentId! Direct messages are also Ok. Ex) `@archbot stay 71300000`'
         return
 
-      robot.http(STAY_API_ENDPOINT).post(studentID: studentId) (err, res, body) ->
-        msg.reply 'Success!'
+      robot.http(STAY_API_ENDPOINT)
+        .header('Content-Type', 'application/x-www-form-urlencoded')
+        .post("studentID=#{studentId}") (err, res, body) ->
+          msg.reply 'Success!'
