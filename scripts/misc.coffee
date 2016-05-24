@@ -13,4 +13,9 @@ module.exports = (robot) ->
       msg.send data.actualImageUrl
 
   robot.hear /^whoami$/i, (msg) ->
-      msg.send msg.message.user.name
+    msg.send msg.message.user.name
+
+  robot.hear /^random\s*(.+)$/, (msg) ->
+    choice = msg.match[1].split(" ")
+    msg.send msg.random choice
+    
