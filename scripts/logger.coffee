@@ -18,3 +18,7 @@ module.exports = (robot) ->
     logger = robot.brain.get("logger/#{msg.message.room}") || []
     user = logger[Math.floor(Math.random()*logger.length)]
     msg.send ":point_right: Next logger is #{user}"
+
+  robot.hear /^logger list$/i, (msg) ->
+    logger = robot.brain.get("logger/#{msg.message.room}") || []
+    msg.send ":point_right: Loggers: #{logger.join(" ")}"
