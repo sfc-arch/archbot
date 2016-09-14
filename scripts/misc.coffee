@@ -19,3 +19,8 @@ module.exports = (robot) ->
     choice = msg.match[1].split(" ")
     msg.send msg.random choice
     
+  robot.hear /^ORFまで\s*(.+)$/, (msg) ->
+    diff = 1479394800000 - Date.now();
+    remain = Math.ceil(diff / 1000 / 60 / 60 / 24)
+    msg.send "*あと#{remain}日 :exclamation: *"
+    
