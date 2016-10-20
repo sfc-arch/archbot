@@ -6,6 +6,7 @@
   "description": "Arch Bot",
   "dependencies": {
     "cron": "^1.0.5",
+    "eastasianwidth": "^0.1.1",
     "github": "^0.2.3",
     "hubot": "^2.11.0",
     "hubot-diagnostics": "0.0.1",
