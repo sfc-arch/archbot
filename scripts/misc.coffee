@@ -19,13 +19,13 @@ module.exports = (robot) ->
     choice = msg.match[1].split(" ")
     msg.send msg.random choice
     
-  robot.hear /^ORFまで$/, (msg) ->
-    diff = 1479394800000 - Date.now();
-    remain = Math.ceil(diff / 1000 / 60 / 60 / 24)
-    msg.send "*あと#{remain}日 :exclamation: *"
+#   robot.hear /^ORFまで$/, (msg) ->
+#     diff = 1479394800000 - Date.now();
+#     remain = Math.ceil(diff / 1000 / 60 / 60 / 24)
+#     msg.send "*あと#{remain}日 :exclamation: *"
     
   robot.hear /^卒論まで$/, (msg) ->
-    diff = 1482332400000 - Date.now();
+    diff = 1485097200000 - Date.now();
     remain = Math.ceil(diff / 1000 / 60 / 60 / 24)
-    msg.send "*卒論仮綴じ(12/22)まであと#{remain}日 :exclamation: *"
+    msg.send "*卒論本綴じ(1/23)まであと#{remain}日 :exclamation: *"
     
