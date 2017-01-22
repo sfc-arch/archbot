@@ -25,7 +25,14 @@ module.exports = (robot) ->
 #     msg.send "*あと#{remain}日 :exclamation: *"
     
   robot.hear /^卒論まで$/, (msg) ->
-    diff = 1485097200000 - Date.now();
-    remain = Math.ceil(diff / 1000 / 60 / 60 / 24)
-    msg.send "*卒論本綴じ(1/23)まであと#{remain}日 :exclamation: *"
-    
+    dayTime = 24 * 60 * 60 * 1000;
+    diff = 1485183599000 - Date.now()
+    if 0 < diff
+      remainHour = Math.floor(diff / 1000 / 60 / 60)
+      h = Math.floor((diff % dayTime) / (60 * 60 * 1000)) 
+      m = Math.floor((diff % dayTime) / (60 * 1000)) % 60 
+      msg.send "*卒論学事提出(1/23 23:59)まであと#{h}時間#{m}分 :exclamation: *"
+    else
+      diff = 1485415800000 - Date.now()
+      d = Math.floor(diff / dayTime) 
+      msg.send "*卒論本綴じ(1/26 16:30)まであと#{d}日 :exclamation: *"
