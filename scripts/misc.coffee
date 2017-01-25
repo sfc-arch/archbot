@@ -26,13 +26,13 @@ module.exports = (robot) ->
     
   robot.hear /^卒論まで$/, (msg) ->
     dayTime = 24 * 60 * 60 * 1000;
-    diff = 1485183599000 - Date.now()
+    diff = 1485415800000 - Date.now()
     if 0 < diff
       h = Math.floor((diff % dayTime) / (60 * 60 * 1000)) 
       m = Math.floor((diff % dayTime) / (60 * 1000)) % 60 
       s = Math.floor((diff % dayTime) / 1000) % 60 % 60 
-      msg.send "*卒論学事提出(1/23 23:59)まであと#{h}時間#{m}分#{s}秒 :exclamation: *"
+      msg.send "*卒論本綴じ(1/26 16:30)まであと#{h}時間#{m}分#{s}秒 :exclamation: *"
     else
-      diff = 1485415800000 - Date.now()
+      diff = 1486134000000 - Date.now()
       d = Math.floor(diff / dayTime) 
-      msg.send "*卒論本綴じ(1/26 16:30)まであと#{d}日 :exclamation: *"
+      msg.send "*卒論最終発表(2/4)まであと#{d}日 :exclamation: *"
